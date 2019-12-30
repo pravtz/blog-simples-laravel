@@ -13,9 +13,9 @@ class AddForengTablePost extends Migration
      */
     public function up()
     {
-        Schema::table('categoria_posts', function (Blueprint $table) {
-            $table->unsignedBigInteger('post_id');
-            $table->foreign('post_id')->references('id')->on('posts');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->unsignedBigInteger('categoriaposts_id');
+            $table->foreign('categoriaposts_id')->references('id')->on('categoriaposts');
         });
     }
 
@@ -26,8 +26,8 @@ class AddForengTablePost extends Migration
      */
     public function down()
     {
-        Schema::table('categoria_posts', function (Blueprint $table) {
-            $table->dropForeign(['post_id']);
+        Schema::table('categoriaposts', function (Blueprint $table) {
+            $table->dropForeign(['categoriaposts_id']);
         });
     }
 }
