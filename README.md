@@ -76,3 +76,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Observações da nova versão do Laravel
+o Comando php artisan make:auth só pode ser utilizado se você baixar a biblioteca ui com o comando composer require laravel/ui
