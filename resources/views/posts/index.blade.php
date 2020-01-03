@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container">
+
+        <div class="col-12">
+            <a class="btn btn-ls btn-success" href="{{ route('post.create') }}">Criar Postagem</a>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -16,8 +20,9 @@
                     <td>{{$post->id}}</td>
                     <td>{{$post->titulo}}</td>
                     <td>{{$post->subtitulo}}</td>
+                    <td><a href="{{ route('post.show',['post'=>$post->id]) }}">Editar</a></td>
                 </tr>
-                @empty
+                @empty  <!--  quando não ouver nenhum post -->
                     <tr>
                         <td colspan="3">
                             <h2>Nenhum post encontrado</h2>
@@ -26,7 +31,7 @@
                 @endforelse
             </tbody>
         </table>
-    {{$posts->links()}}
+    {{$posts->links()}} <!-- exibir a navegação-->
     </div>
    
 @endsection
