@@ -8,6 +8,14 @@ use App\Post;
 
 class posts extends Controller
 {
+
+    private $post;
+
+    public function __construct(Post $post){
+        $this->post = $post;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +23,12 @@ class posts extends Controller
      */
     public function index()
     {
-        return Post::all();
+        $posts = $this->post->paginate(10);
+        //return $posts;
+        //return view('posts.index', ['posts' => $posts]); //passando a variavel para a view
+        return view('posts.index', compact('posts'));  // outra maneira de passar uma variavel para view criando um array associativo com compact que e nativo do php
+        
+
     }
 
     /**
