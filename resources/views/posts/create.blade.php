@@ -2,8 +2,16 @@
 
 
 @section('content')
+
+{{-- comentario feito com o template do blade é feito dessa forma --}}
+
 <div class="container">
     <form action="{{ route('post.store') }}" method="post">
+
+    <!-- existem três formas de mandar um token csrf -->
+    <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <!-- {{csrf_field()}} -->
+    <!-- @csrf -->
 
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -29,7 +37,7 @@
 
         <div class="form-group">
             <label for="referencia">Referência</label>
-            <input type="textaria" name="referencia" class="form-control"></div>
+            <input type="textaria" value="sem referência" name="referencia" class="form-control"></div>
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="imagem">URL da Imagem</label>
@@ -37,7 +45,7 @@
 
             <div class="form-group col-md-4">
                 <label for="">Descricao da Imagem</label>
-                <input type="text" name="descricao_imagem" class="form-control"></div>
+                <input type="text" value="sem descrição" name="descricao_imagem"  class="form-control"></div>
 
             <div class="form-group col-md-3">
                 <label for="">Autor do Post</label>
@@ -52,7 +60,7 @@
                 </select>
             </div>
         </div>
-            
+
 
         <button type="submit" class="btn btn-lg btn-success">Criar Post</button>
 
