@@ -86,7 +86,7 @@ class posts extends Controller
     public function show(Post $id)
     {
         $post = $this->post->find($id);
-        return view('post.edit', compact('post'));
+        return view('posts.show', compact('post'));
 
     }
 
@@ -98,7 +98,9 @@ class posts extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = $this->post->find($id);
+
+        return view('posts.edit', compact('post'));
     }
 
     /**

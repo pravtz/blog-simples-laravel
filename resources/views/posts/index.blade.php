@@ -20,7 +20,9 @@
                     <td>{{$post->id}}</td>
                     <td>{{$post->titulo}}</td>
                     <td>{{$post->subtitulo}}</td>
-                    <td><a href="{{ route('post.show',['post'=>$post->id]) }}">Editar</a></td>
+                    <td><a href="{{ route('post.show',['post'=>$post->id]) }}">Mostrar</a></td>
+                    <td><a href="{{ route('post.edit',['post'=>$post->id]) }}">Editar</a></td>
+                    <td><a href="{{ route('post.destroy',['post'=>$post->id]) }}">Deletar</a></td>
                 </tr>
                 @empty  <!--  quando não ouver nenhum post -->
                     <tr>
@@ -33,5 +35,5 @@
         </table>
     {{$posts->links()}} <!-- exibir a navegação-->
     </div>
-   
+
 @endsection
